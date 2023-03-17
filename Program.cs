@@ -45,11 +45,27 @@
 //Задача 6. Напишите программу, 
 //которая на вход принимает число N, а на выходе показывает все чётные числа от 1 до N.
 
-Console.Write("Введите чиcло: ");
+/*Console.Write("Введите чиcло: ");
 int N = int.Parse(Console.ReadLine()!);
 
 int A = 1;
 while(A < N)
 { if(A%2==0) Console.Write($"{A} ");
   A++;
-} // A = A+1;clear
+} // A = A+1;clear*/
+
+Console.WriteLine("Введите пятизначное число");
+string num = Console.ReadLine()!;
+if(num.Length == 5)
+{ 
+  if(num[0] == num[4] && num[1] == num[3])
+    {
+    Console.WriteLine($" Число {num} - паллиндром");
+    } 
+
+  else {Console.WriteLine($" Число {num} - не паллиндром");}
+}
+else 
+{
+  Console.WriteLine("Введите корректное число. Данное число не пятизначное");
+}
