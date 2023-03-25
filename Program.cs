@@ -1,63 +1,103 @@
-﻿// Задача 19. Напишите программу, которая принимает на вход и проверяет
-// является ли число паллиндромом. Задачу решить строковым методом.
+﻿// ДОМАШНЕЕ ЗАДАНИЕ №5
 
-Console.WriteLine("Введите пятизначное число");
-string num = Console.ReadLine()!;
-if(num.Length == 5)
-{ 
-  if(num[0] == num[4] && num[1] == num[3])
+// ЗАДАЧА 1 Задайте массив, заполненный случайнымии положительными трёхзначными числами.
+// напишите программу, которая покажет кол-во чётных чисел в массие.
+//[345,897,568,234]->2
+
+int[] array = GetRandomArray(5, 100, 1000);
+Console.WriteLine($"[{String.Join(",", array)}]");
+
+// МЕТОД РАСЧЁТА КОЛ-ВА ЧЁТНЫХ ЧИСЕЛ
+
+int countEven(int[] mas)
+{
+    int count = 0;
+    foreach(int el in mas)
+    {count += el%2 == 0 ? 1 : 0;}
+    return count;
+}
+Console.WriteLine($"Количество чётных чисел в массиве: {countEven(array)}");
+
+// МЕТОД ЗАДАНИЯ МАССИВА
+int[] GetRandomArray(int size, int minValue, int maxValue)
+
+            {
+                int[] result = new int[size];
+
+                for (int i = 0; i < size; i++)
+
+                {
+                    result[i] = new Random().Next(minValue, maxValue + 1);
+
+                }
+                return result;
+
+            }
+
+// ЗАДАЧА 2 Задайте одномерный массив, заполненный случайнымии числами.
+// Найдите сумму элементов, стоящих на нечётных индексах
+//[3,7,23,12]->19
+
+/*int[] array = GetRandomArray(5, -50, 100);
+Console.WriteLine($"[{String.Join(",", array)}]");
+Console.WriteLine($"Сумма нечетных элементов {oddSum(array)}");
+
+// МЕТОД РАСЧЁТА СУММЫ НЕЧЁТНЫХ ЧИСЕЛ
+
+int oddSum(int[] mas)
+{
+int Sum = 0;
+for(int i = 0; i < mas.Length; i++)
     {
-    Console.WriteLine($" Число {num} - паллиндром");
-    } 
+if(i%2 != 0) 
+     {Sum += mas[i];}
 
-  else {Console.WriteLine($" Число {num} - не паллиндром");}
-}
-else 
-{
-  Console.WriteLine("Введите корректное число. Данное число не пятизначное");
+    } return Sum;
 }
 
-// Задача 21. Напишите программу, которая принимает на вход координаты двух точек
-// и находит расстояние между ними в 3D пространстве.
+// МЕТОД ЗАДАНИЯ МАССИВА
+int[] GetRandomArray(int size, int minValue, int maxValue)
 
-/*int RedInt(string text)
-{
-  Console.Write(text);
-  return Convert.ToInt32(Console.ReadLine());
+            {
+                int[] result = new int[size];
+
+                for (int i = 0; i < size; i++)
+
+                {
+                    result[i] = new Random().Next(minValue, maxValue + 1);
+
+                }
+                return result;
+            } */
+
+/* ЗАДАЧА 3 Задайте массив вещественных чисел. Найдите разницу между максимальным
+// и минимальным элементом массива.
+
+// МЕТОД ЗАДАНИЯ МАССИВА ВЕЩЕСТВЕННЫХ ЧИСЕЛ
+double[] array = GetRandomDoubleArray(5, 5, 10);
+Console.WriteLine($"[{String.Join(",  ",   array)}]");
+Console.WriteLine($" Разница между максимальным и минимальным значениями равна: {Differ(array)}");
+
+// МЕТОД РАСЧЁТА РАЗНИЦЫ
+
+double Differ(double[] mas)
+ {double max = mas[0];
+  double min = mas[0];
+  for(int i = 1; i < mas.Length; i++)
+    { if(mas[i]>max) max=mas[i];
+      if(mas[i]<min) min=mas[i];
+    }
+    
+    return max-min;
 }
-
-int[] a = new int[3];
-int[] b = new int[3];
-
-a[0] = RedInt("Введите координату Х точки А: ");
-a[1] = RedInt("Введите координату Y точки A: ");
-a[2] = RedInt("Введите координату Z точки A: ");
-b[0] = RedInt("Введите координату Х точки B: ");
-b[1] = RedInt("Введите координату Y точки В: ");
-b[2] = RedInt("Введите координату Z точки В: ");
-
-double Distance (int ax, int ay, int az, int bx, int by, int bz)
-{
- return Math.Sqrt(Math.Pow(a[0]-b[0],2) + Math.Pow(a[1]-b[1],2) + Math.Pow(a[2]-b[2],2));
-}
-
-double res = Distance(a[0], a[1], a[2], b[0], b[1], b[2]);
-Console.WriteLine("Расстояние между точками= " + res);*/
-
-
-// Задача: 23 Напишите программу, которая принимает на вход число (N)
-// и выдаёт таблицу кубов чисел от 1 до N. 3-> 1,8 5-> 1,8,27,64,125
-
-/*int ReadInt(string text)
-{
-  Console.Write(text);
-  return Convert.ToInt32(Console.ReadLine());
-}
-
-int N = ReadInt("Введите число: ");
-
-for (int i=1; i<=N; i++)
-{
-Console.Write(Math.Pow(i,3)+ " ");
-
-}*/
+// МЕТОД ЗАДАНИЯ МАССИВА
+double[] GetRandomDoubleArray(int size, double minValue, double maxValue)
+            {
+                double[] result = new double[size];
+                Random rand = new Random();
+                for (int i = 0; i < size; i++)
+                {
+                    result[i] = rand.NextDouble()*10;
+                }
+              return result;
+            } */
