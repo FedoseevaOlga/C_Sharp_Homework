@@ -1,103 +1,118 @@
-﻿// ДОМАШНЕЕ ЗАДАНИЕ №5
+﻿// ДОМАШНЕЕ ЗАДАНИЕ К СЕМИНАРУ 7
 
-// ЗАДАЧА 1 Задайте массив, заполненный случайнымии положительными трёхзначными числами.
-// напишите программу, которая покажет кол-во чётных чисел в массие.
-//[345,897,568,234]->2
+//ЗАДАЧА 47. Задайте двумерный массив размером m*n, заполненный случайными вещественными числами.
 
-int[] array = GetRandomArray(5, 100, 1000);
-Console.WriteLine($"[{String.Join(",", array)}]");
+/*Console.Write("Введите количество строк: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов: ");
+int columns = int.Parse(Console.ReadLine()!);
 
-// МЕТОД РАСЧЁТА КОЛ-ВА ЧЁТНЫХ ЧИСЕЛ
+double[,] array = GetArrayDouble(rows,columns, -10, 10);
+PrintArrayDouble(array);
 
-int countEven(int[] mas)
+// Заполнение двумерного массива
+double[,] GetArrayDouble(int m, int n, int minValue, int maxValue)
 {
-    int count = 0;
-    foreach(int el in mas)
-    {count += el%2 == 0 ? 1 : 0;}
-    return count;
-}
-Console.WriteLine($"Количество чётных чисел в массиве: {countEven(array)}");
-
-// МЕТОД ЗАДАНИЯ МАССИВА
-int[] GetRandomArray(int size, int minValue, int maxValue)
-
-            {
-                int[] result = new int[size];
-
-                for (int i = 0; i < size; i++)
-
-                {
-                    result[i] = new Random().Next(minValue, maxValue + 1);
-
-                }
-                return result;
-
-            }
-
-// ЗАДАЧА 2 Задайте одномерный массив, заполненный случайнымии числами.
-// Найдите сумму элементов, стоящих на нечётных индексах
-//[3,7,23,12]->19
-
-/*int[] array = GetRandomArray(5, -50, 100);
-Console.WriteLine($"[{String.Join(",", array)}]");
-Console.WriteLine($"Сумма нечетных элементов {oddSum(array)}");
-
-// МЕТОД РАСЧЁТА СУММЫ НЕЧЁТНЫХ ЧИСЕЛ
-
-int oddSum(int[] mas)
-{
-int Sum = 0;
-for(int i = 0; i < mas.Length; i++)
+    double[,] res = new double[m,n];
+    for(int i=0; i < m; i++)
     {
-if(i%2 != 0) 
-     {Sum += mas[i];}
-
-    } return Sum;
-}
-
-// МЕТОД ЗАДАНИЯ МАССИВА
-int[] GetRandomArray(int size, int minValue, int maxValue)
-
-            {
-                int[] result = new int[size];
-
-                for (int i = 0; i < size; i++)
-
-                {
-                    result[i] = new Random().Next(minValue, maxValue + 1);
-
-                }
-                return result;
-            } */
-
-/* ЗАДАЧА 3 Задайте массив вещественных чисел. Найдите разницу между максимальным
-// и минимальным элементом массива.
-
-// МЕТОД ЗАДАНИЯ МАССИВА ВЕЩЕСТВЕННЫХ ЧИСЕЛ
-double[] array = GetRandomDoubleArray(5, 5, 10);
-Console.WriteLine($"[{String.Join(",  ",   array)}]");
-Console.WriteLine($" Разница между максимальным и минимальным значениями равна: {Differ(array)}");
-
-// МЕТОД РАСЧЁТА РАЗНИЦЫ
-
-double Differ(double[] mas)
- {double max = mas[0];
-  double min = mas[0];
-  for(int i = 1; i < mas.Length; i++)
-    { if(mas[i]>max) max=mas[i];
-      if(mas[i]<min) min=mas[i];
+        for(int j=0; j < n; j++)
+        {res[i, j] = Math.Round(new Random().NextDouble()+ new Random().Next(maxValue-minValue),2);}
     }
-    
-    return max-min;
+    return res;
 }
-// МЕТОД ЗАДАНИЯ МАССИВА
-double[] GetRandomDoubleArray(int size, double minValue, double maxValue)
-            {
-                double[] result = new double[size];
-                Random rand = new Random();
-                for (int i = 0; i < size; i++)
-                {
-                    result[i] = rand.NextDouble()*10;
-                }
-              return result;
-            } */
+
+void PrintArrayDouble(double[,] array)
+{for(int i=0; i < array.GetLength(0); i++)
+{ for(int j=0; j < array.GetLength(1); j++){
+ Console.Write($"{array[i,j]} "); }
+ Console.WriteLine();
+ }
+}*/
+
+// ЗАДАЧА 50 Программа принимает на вход два числа, и проверяет, есть ли такая позиция в массиве.
+/*Console.Write("Введите количество строк: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов: ");
+int columns = int.Parse(Console.ReadLine()!);
+Console.Write("Введите первое число, i= ");
+int a = int.Parse(Console.ReadLine()!);
+Console.Write("Введите второе число, j = ");
+int b = int.Parse(Console.ReadLine()!);
+
+int[,] array = GetArray(rows,columns, 0, 10);
+PrintArray(array);
+FindElement (array, a, b); 
+
+void FindElement(int [,] array, int a, int b)
+
+{ if(a > array.GetLength(0) || b > array.GetLength(1))
+  Console.WriteLine("такого элемента в массиве нет ");
+  else Console.WriteLine($"Такой элемент есть: {array[a,b]}");
+   
+}
+
+// Заполнение двумерного массива
+int[,] GetArray(int m, int n, int minValue, int maxValue)
+{
+    int[,] res = new int[m,n];
+    for(int i=0; i < m; i++)
+    {
+        for(int j=0; j < n; j++)
+        {res[i, j] = new Random().Next(minValue,maxValue + 1);}
+    }
+    return res;
+}
+
+void PrintArray(int[,] array)
+{for(int i=0; i < array.GetLength(0); i++)
+{ for(int j=0; j < array.GetLength(1); j++){
+ Console.Write($"{array[i,j]} "); }
+ Console.WriteLine();
+ }
+
+}*/
+
+//ЗАДАЧА 52 Найти среднеарифметическое каждого столбца.
+Console.Write("Введите количество строк: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов: ");
+int columns = int.Parse(Console.ReadLine()!);
+
+
+int[,] array = GetArray(rows,columns, 0, 10);
+PrintArray(array);
+//Console.WriteLine($" Среднеарифметическое каждого столбца: {FindArithmetic(array)}"); 
+Console.WriteLine($"[{String.Join(",", FindArithmetic(array))}]");
+int[] FindArithmetic(int [,] array)
+
+{  int[] res = new int[array.GetLength(0)];
+   for(int j=0; j < array.GetLength(1); j++)
+    {   
+        int sum =0;
+        for(int i=0; i < array.GetLength(0); i++)
+        {sum+=array[i,j];}
+        res [j]=sum/(array.GetLength(0));
+    }
+   return res;
+}
+// Заполнение двумерного массива
+int[,] GetArray(int m, int n, int minValue, int maxValue)
+{
+    int[,] res = new int[m,n];
+    for(int i=0; i < m; i++)
+    {
+        for(int j=0; j < n; j++)
+        {res[i, j] = new Random().Next(minValue,maxValue + 1);}
+    }
+    return res;
+}
+
+void PrintArray(int[,] array)
+{for(int i=0; i < array.GetLength(0); i++)
+{ for(int j=0; j < array.GetLength(1); j++){
+ Console.Write($"{array[i,j]} "); }
+ Console.WriteLine();
+ }
+
+}
